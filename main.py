@@ -105,7 +105,7 @@ def main(window):
     BG_IMAGE = pygame.transform.scale(BG_IMAGE_ORIG, (WIDTH, HEIGHT))
 
     player = Player(100, 100, 50, 50)
-    
+
     run = True
     while run:
         clock.tick(FPS)
