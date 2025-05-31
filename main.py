@@ -293,7 +293,12 @@ def main():
                Block(block_size * 18, HEIGHT - block_size * 6, block_size),
                Block(block_size * 19, HEIGHT - block_size * 6, block_size),
                Block(block_size * 20, HEIGHT - block_size * 6, block_size),
-               
+               Block(block_size * 24, HEIGHT - block_size * 3, block_size),
+               Block(block_size * 25, HEIGHT - block_size * 4, block_size),
+               Block(block_size * 26, HEIGHT - block_size * 5, block_size),
+               Block(block_size * 27, HEIGHT - block_size * 5, block_size),
+               Block(block_size * 28, HEIGHT - block_size * 5, block_size),
+               Block(block_size * 29, HEIGHT - block_size * 5, block_size),
                ]
 
     
