@@ -44,7 +44,10 @@ class Player(pygame.sprite.Sprite):
     ANIMATION_DELAY = 5
 
     def __init__(self, x, y, width, height):
-        self.SPRITES = load_sprite_sheet("player", "run.png", 32, 32, True)
+        super().__init__()
+        self.SPRITES = {}
+        self.SPRITES.update(load_sprite_sheet("player", "run.png", 32, 32, True))
+        self.SPRITES.update(load_sprite_sheet("player", "idle.png", 32, 32, True))        
         self.rect = pygame.Rect(x, y, width, height)
         self.x_vel = 0
         self.y_vel = 0
@@ -78,19 +81,30 @@ class Player(pygame.sprite.Sprite):
         self.update_sprite()
     
     def update_sprite(self):
-        sprite_sheet = "idle"
-        if self.x_vel != 0:
-            sprite_sheet = "run"
+        if self.x_vel == 0:
+            sprite_sheet_name = "idle_" + self.direction
+        else:
+            sprite_sheet_name = "run_" + self.direction
         
-        sprite_sheet_name = sprite_sheet + "_" + self.direction
-        sprites = self.sprites[sprite_sheet_name]
+        sprites = self.SPRITES[sprite_sheet_name]
         sprite_index = (self.animation_count // self.ANIMATION_DELAY) % len(sprites)
         self.sprite = sprites[sprite_index]
         self.animation_count += 1
+        self.update()
     
+    def update(self):
+        self.rect = self.sprite.get_rect(topleft=(self.rect.x, self.rect.y))
+        self.mask = pygame.mask.from_surface(self.sprite)
 
     def draw(self, window):
         window.blit(self.sprite, (self.rect.x, self.rect.y))
+
+class Object(pygame.sprite.Sprite):
+    def __init__(self, x, y, width, height, name=None):
+      super().__init__()
+      self.rect = pygame.Rect(x, y, width, height)
+      self.image = pygame.Surface((width, height), pygame.SRCALPHA)
+    
 
 def draw(window, player):
     player.draw(window)
@@ -105,7 +119,7 @@ def handle_move(player):
         player.move_left(PLAYER_VEL)
     if keys[pygame.K_d]:
         player.move_right(PLAYER_VEL)
-
+    
 
 def main():
     clock = pygame.time.Clock()
@@ -120,7 +134,12 @@ def main():
 
     run = True
     while run:
-        clock.tick(FPS)
+        if player.x_vel == 0:
+            current_fps = 15
+        else:
+            current_fps = 60
+        
+        clock.tick(current_fps)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
