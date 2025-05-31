@@ -67,11 +67,12 @@ class Player(pygame.sprite.Sprite):
         self.jump_count = 0
 
     def jump(self):
-        self.y_vel = -self.Gravity * 8
+        self.y_vel = -self.GRAVITY * 8
         self.animation_count = 0
         self.jump_count += 1
         if self.jump_count == 1:
-            
+            self.fall_count = 0
+
 
     def move(self, dx, dy):
         self.rect.x += dx
@@ -199,6 +200,8 @@ def main():
     while run:
         if player.x_vel == 0:
             current_fps = 15
+        if player.y_vel != 0: 
+            current_fps = 60
         else:
             current_fps = 60
         
@@ -208,10 +211,15 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 break
+            
             elif event.type == pygame.VIDEORESIZE:
                 win_width, win_height = event.w, event.h
                 window = pygame.display.set_mode((win_width, win_height), pygame.RESIZABLE)
                 BG_IMAGE = pygame.transform.scale(BG_IMAGE_ORIG, (win_width, win_height))
+            
+            elif event.type == pygame.KEYDOWN: 
+                if event.key == pygame.K_w and player.jump_count < 2:
+                    player.jump()
         window.blit(BG_IMAGE, (0, 0))
 
         player.loop(FPS)
