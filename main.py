@@ -44,7 +44,7 @@ class Player(pygame.sprite.Sprite):
     ANIMATION_DELAY = 5
 
     def __init__(self, x, y, width, height):
-        self.SPRITES = load_sprite_sheet("player", "walkingAnimation.png", 32, 32, True)
+        self.SPRITES = load_sprite_sheet("player", "run.png", 32, 32, True)
         self.rect = pygame.Rect(x, y, width, height)
         self.x_vel = 0
         self.y_vel = 0
@@ -52,10 +52,6 @@ class Player(pygame.sprite.Sprite):
         self.direction = "left"
         self.animation_count = 0
         self.fall_count = 0
-        SPRITES = {
-        "walkingAnimation_left": load_sprite_sheet("Player", "WalkingLeft.png", 64, 64, True)["walkingAnimation_left"],
-        "walkingAnimation_right": load_sprite_sheet("Player", "WalkingRight.png", 64, 64, True)["walkingAnimation_right"]
-        }
 
 
     def move(self, dx, dy):
