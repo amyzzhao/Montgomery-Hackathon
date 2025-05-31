@@ -299,6 +299,29 @@ def main():
                Block(block_size * 27, HEIGHT - block_size * 5, block_size),
                Block(block_size * 28, HEIGHT - block_size * 5, block_size),
                Block(block_size * 29, HEIGHT - block_size * 5, block_size),
+               Block(block_size * 32, HEIGHT - block_size * 5, block_size),
+               Block(block_size * 35, HEIGHT - block_size * 5, block_size),
+               Block(block_size * 38, HEIGHT - block_size * 5, block_size),
+               Block(block_size * 41, HEIGHT - block_size * 5, block_size),
+               Block(block_size * 44, HEIGHT - block_size * 5, block_size),
+               Block(block_size * 45, HEIGHT - block_size * 4, block_size),
+               Block(block_size * 45, HEIGHT - block_size * 3, block_size),
+               Block(block_size * 45, HEIGHT - block_size * 2, block_size),
+               Block(block_size * 45, HEIGHT - block_size * 1, block_size),
+               Block(block_size * 52, HEIGHT - block_size * 3, block_size),
+               Block(block_size * 53, HEIGHT - block_size * 4, block_size),
+               Block(block_size * 54, HEIGHT - block_size * 5, block_size),
+               Block(block_size * 55, HEIGHT - block_size * 6, block_size),
+               Block(block_size * 56, HEIGHT - block_size * 7, block_size),
+               Block(block_size * 57, HEIGHT - block_size * 7, block_size),
+               Block(block_size * 61, HEIGHT - block_size * 7, block_size),
+               Block(block_size * 62, HEIGHT - block_size * 7, block_size),
+               Block(block_size * 62, HEIGHT - block_size * 6, block_size),
+               Block(block_size * 62, HEIGHT - block_size * 5, block_size),
+               Block(block_size * 62, HEIGHT - block_size * 4, block_size),
+               Block(block_size * 62, HEIGHT - block_size * 3, block_size),
+               Block(block_size * 62, HEIGHT - block_size * 2, block_size),
+               Block(block_size * 62, HEIGHT - block_size * 1, block_size),
                ]
 
     
@@ -317,7 +340,7 @@ def main():
     engineerOrb = Orb(3000, HEIGHT - orb_size * 3, 70)
     objects.append(engineerOrb)
 
-    artistOrb = Orb(4000, HEIGHT - orb_size * 3, 70)
+    artistOrb = Orb(4200, HEIGHT - orb_size * 3, 70)
     objects.append(artistOrb)
 
     offset_x = 0
