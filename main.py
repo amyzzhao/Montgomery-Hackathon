@@ -257,7 +257,7 @@ def main():
     clock = pygame.time.Clock()
     win_width, win_height = WIDTH, HEIGHT
     window = pygame.display.set_mode((win_width, win_height), pygame.RESIZABLE)
-    pygame.display.set_caption("Platformer")
+    pygame.display.set_caption("Exploration - A Short Platformer Game")
     
     BG_IMAGE_ORIG = pygame.image.load(os.path.join("assets", "Background.png")).convert_alpha()
     BG_IMAGE = pygame.transform.scale(BG_IMAGE_ORIG, (WIDTH, HEIGHT))
