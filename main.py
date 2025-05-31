@@ -78,7 +78,7 @@ def main(window):
     win_width, win_height = WIDTH, HEIGHT
 
     player = Player(100, 100, 50, 50)
-    
+
     run = True
     while run:
         clock.tick(FPS)
